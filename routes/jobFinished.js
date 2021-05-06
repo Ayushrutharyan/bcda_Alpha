@@ -35,7 +35,7 @@ router.get('/', async function(req,res,next)
                 decompress: false
             })
 
-            const fileStream = fs.createWriteStream("./download/"+fileUrlList[i].type+"_"+i+".gz")
+            const fileStream = fs.createWriteStream(fileUrlList[i].type+"_"+i+".gz")
             
             const response = await pipeline(downloadStream, fileStream);
             console.log("File downloaded..."+fileUrlList[i].type+"_"+i+".gz")
